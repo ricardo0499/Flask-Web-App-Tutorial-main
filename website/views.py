@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, flash, jsonify
 from flask_login import login_required, current_user
-from .models import Note
+from .models import Note, Reporte
 from . import db
 import json
 
@@ -27,7 +27,7 @@ def home():
 @login_required
 def reports():
     if request.method == 'POST':
-        note = request.form.get('note')
+        note = request.form.get('reporte')
 
         if len(note) < 1:
             flash('Note is too short!', category='error')
@@ -38,6 +38,18 @@ def reports():
             flash('Note added!', category='success')
 
     return render_template("reports.html", user=current_user)
+
+@views.route('/delete-reporte', methods=['POST'])
+def delete_reporte():
+    reporte = json.loads(request.data)
+    reporteId = reporte['reporteId']
+    reporte = Reporte.query.get(reporteId)
+    if reporte:
+        if reporte.user_id == current_user.id:
+            db.session.delete(reporte)
+            db.session.commit()
+
+    return jsonify({})
 
 @views.route('/delete-note', methods=['POST'])
 def delete_note():

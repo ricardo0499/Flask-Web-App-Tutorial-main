@@ -3,20 +3,28 @@
     <h1 align="center">Lista de Reportes</h1>
     <table class="table">
         <tr>
-          <th>Company</th>
-          <th>Contact</th>
-          <th>Country</th>
+          <th>Nombre</th>
+          <th>Fecha</th>
+          <th>Ubicación</th>
         </tr>
+        {% for note in user.reporte %}
+        <tr>
+            <td>{{ note.name}}</td>
+            <td>{{ note.date }}</td>
+            <td>{{ note.location }}</td>
+            <td><button type="button" class="close" onClick="deleteReporte({{ reporte.id }})">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </td>
+        </tr>
+        <li class="list-group-item">
+            
+            
+        </li>
+        {% endfor %}
     </table>
     <ul class="list-group list-group-flush" id="notes">
-      {% for note in user.notes %}
-      <li class="list-group-item">
-        {{ note.data }}
-        <button type="button" class="close" onClick="deleteNote({{ note.id }})">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </li>
-      {% endfor %}
+      
     </ul>
     <form method="POST">
       <textarea name="name" id="name" class="form-control"></textarea>
