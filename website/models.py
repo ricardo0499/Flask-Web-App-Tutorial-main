@@ -18,4 +18,10 @@ class User(db.Model, UserMixin):
     first_name = db.Column(db.String(150))
     notes = db.relationship('Note')
 
-
+class Reporte(db.Model):
+    id=db.Column(db.Integer, primary_key=True)
+    name=db.Column(db.String(100),unique=True)
+    date=db.Column(db.DateTime(timezone=True), default = func.now())
+    location=db.Column(db.String(150))
+    inspector=db.relationship('User')
+    notes = db.relationship('Note')
