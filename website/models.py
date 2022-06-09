@@ -23,6 +23,6 @@ class Reporte(db.Model):
     name=db.Column(db.String(100),unique=True)
     date=db.Column(db.DateTime(timezone=True), default = func.now())
     location=db.Column(db.String(150))
-    inspector_id=db.Column(db.Integer, db.ForeignKey('user.id'))
+    user_id=db.Column(db.Integer, db.ForeignKey('user.id'))
     notas = db.Column(db.String(10000))
  
