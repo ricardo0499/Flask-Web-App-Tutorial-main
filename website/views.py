@@ -1,3 +1,4 @@
+from unicodedata import name
 from flask import Blueprint, render_template, request, flash, jsonify
 from flask_login import login_required, current_user
 from .models import Note, Reporte
@@ -27,15 +28,14 @@ def home():
 @login_required
 def reports():
     if request.method == 'POST':
-        note = request.form.get('reporte')
-
-        if len(note) < 1:
-            flash('Note is too short!', category='error')
-        else:
-            new_note = Note(data=note, user_id=current_user.id)
-            db.session.add(new_note)
-            db.session.commit()
-            flash('Note added!', category='success')
+        nombre = request.form.get('name')
+        nota = request.form.get('nota')
+        location=request.form.get('location')
+        dates = request.form.get('date')
+        new_report = Reporte(notas=nota, inspector_id=current_user.id, date = dates,location=location, nombre=name)
+        db.session.add(new_report)
+        db.session.commit()
+        flash('Report added!', category='success')
 
     return render_template("reports.html", user=current_user)
 

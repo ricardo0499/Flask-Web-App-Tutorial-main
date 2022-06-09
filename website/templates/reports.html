@@ -20,26 +20,19 @@
                 </button>
             </td>
         </tr>
-        <li class="list-group-item">
-            
-            
-        </li>
         {% endfor %}
+        <tr>
+            <td><input type="text" form="newRep" name="name" id="name"/></td>
+            <td><input type="date" form="newRep" name="date" id="date"/></td>
+            <td><input type="text" form="newRep" name="location" id="location"/></td>
+            <td><input type="text" form="newRep" name="nota" id="nota"/></td>
+            <td><button type="submit" class="btn btn-primary" form="newRep">Añadir Reporte</button></td>
+        </tr>
     </table>
     <ul class="list-group list-group-flush" id="notes">
       
     </ul>
-    <form method="POST">
-      <textarea name="name" id="name" class="form-control"></textarea>
-      <br />
-      <textarea name="date" id="date" class="form-control"></textarea>
-      <br />
-      <input id="datefield" type='date' min='1899-01-01' max='2000-13-13'></input>
-      <br />
-      <div align="center">
-        <button type="submit" class="btn btn-primary">Add Note</button>
-      </div>
-    </form>
+    <form method="POST" id="newRep"></form>
     <a href="/Report">Reporte1</a>
 
     <script>
