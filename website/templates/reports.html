@@ -6,12 +6,14 @@
           <th>Nombre</th>
           <th>Fecha</th>
           <th>Ubicación</th>
+          <th>Notas</th>
         </tr>
         {% for note in user.reporte %}
         <tr>
             <td>{{ note.name}}</td>
             <td>{{ note.date }}</td>
             <td>{{ note.location }}</td>
+            <td>{{ note.notas }}</td>
             <td><button type="button" class="close" onClick="deleteReporte({{ reporte.id }})">
                 <span aria-hidden="true">&times;</span>
                 </button>
