@@ -32,7 +32,7 @@ def reports():
         nota = request.form.get('nota')
         location=request.form.get('location')
         dates = request.form.get('date')
-        new_report = Reporte(notas=nota, inspector_id=current_user.id, date = dates,location=location, name=name)
+        new_report = Reporte(notas=nota, user_id=current_user.id, date = dates,location=location, name=name)
         db.session.add(new_report)
         db.session.commit()
         flash('Report added!', category='success')
