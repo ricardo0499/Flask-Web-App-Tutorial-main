@@ -8,8 +8,8 @@ class Note(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     data = db.Column(db.String(10000))
     date = db.Column(db.DateTime(timezone=True), default=func.now())
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    repor_id = db.Column(db.Integer, db.ForeignKey('reporte.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('user'))
+    report_id = db.Column(db.Integer, db.ForeignKey('reporte.id'))
 
 
 class User(db.Model, UserMixin):
@@ -18,12 +18,13 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(150))
     first_name = db.Column(db.String(150))
     notes = db.relationship('Note')
+    reporte = db.relationship('Reporte')
 
 class Reporte(db.Model):
     id=db.Column(db.Integer, primary_key=True)
     name=db.Column(db.String(100),unique=True)
     date=db.Column(db.DateTime(timezone=True), default = func.now())
     location=db.Column(db.String(150))
-    inspector=db.relationship('User')
-    notes = db.relationship('Note')
+    inspector_id=db.Column(db.Integer, db.ForeignKey('user'))
+    notas = db.relationship('Note')
  
