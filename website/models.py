@@ -9,7 +9,7 @@ class Note(db.Model):
     data = db.Column(db.String(10000))
     date = db.Column(db.DateTime(timezone=True), default=func.now())
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    repor_id = db.Column(db.Integer, db.ForeignKey('report.id'))
+    repor_id = db.Column(db.Integer, db.ForeignKey('reporte.id'))
 
 
 class User(db.Model, UserMixin):
