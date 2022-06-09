@@ -1,6 +1,37 @@
 {% extends "base.html" %} {% block title %}Report{% endblock %} {% block content
     %}
-    <body>
+    <style>
+      
+        #text {
+            /*z-index: 100;
+            position: absolute;*/
+            color: black;
+            font-size: 30px;
+            font-weight: bold;
+            left: 800px;
+            top: 30px;
+        }
+
+        .boton_1{
+            text-decoration: none;
+            padding: 3px;
+            padding-left: 10px;
+            padding-right: 10px;
+            font-family: helvetica;
+            font-weight: 300;
+            font-size: 25px;
+            font-style: italic;
+            color: #006505;
+            background-color: #82b085;
+            border-radius: 15px;
+            border: 3px double #006505;
+        }
+        .boton_1:hover{
+            opacity: 0.6;
+            text-decoration: none;
+        }
+    </style>
+    
     
     <!--div class="topnav">
       <a class="active" href="#home">Home</a>
@@ -15,7 +46,7 @@
     
     
       <div>
-        <img src="img/descarga.jpg" style="float:left;margin-left: 200px;border: 4px solid; color: black;"  width="350px" height="30%">
+        <img src="descarga.jpg" style="float:left;margin-left: 200px;border: 4px solid; color: black;"  width="350px" height="30%">
         <div>
             <p id="text">   &nbsp; &nbsp;Nombre: Reporte #1 <br> <br> <br>
                             &nbsp; &nbsp;Fecha: 27/6/2022 <br> <br> <br>
@@ -25,5 +56,5 @@
     
       <a href="" class="boton_1" style="margin-top: 60px;margin-left: 650px;">Ver Reporte</a>
     
-    </body>
+
     {% endblock %}
