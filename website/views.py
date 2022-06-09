@@ -23,7 +23,7 @@ def home():
 
     return render_template("home.html", user=current_user)
 
-@views.route('/', methods=['GET', 'POST'])
+@views.route('/Reports', methods=['GET', 'POST'])
 @login_required
 def reports():
     if request.method == 'POST':
